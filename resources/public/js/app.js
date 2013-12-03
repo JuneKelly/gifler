@@ -14,7 +14,8 @@
 (function() {
   'use strict';
   angular.module('giflerApp').controller('MainCtrl', function($scope) {
-    return $scope.awesomeThings = ['HTML5 Boilerplate', 'AngularJS', 'Karma'];
+    $scope.awesomeThings = ['HTML5 Boilerplate', 'AngularJS', 'Karma'];
+    return console.log("hihihihi");
   });
 
 }).call(this);

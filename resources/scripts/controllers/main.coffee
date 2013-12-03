@@ -7,3 +7,4 @@ angular.module('giflerApp')
       'AngularJS'
       'Karma'
     ]
+    console.log "hihihihi"
