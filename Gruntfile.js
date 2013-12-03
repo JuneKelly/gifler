@@ -16,6 +16,10 @@ module.exports = function(grunt) {
       styles: {
         files: ["resources/styles/main.css"],
         tasks: "newer:copy:styles"
+      },
+      views: {
+        files: ["resources/views/*.html"],
+        tasks: "newer:copy:views"
       }
     },
     exec: {
