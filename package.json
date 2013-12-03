@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "grunt-exec": "*",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-watch": "*"
+  },
+  "devDependencies": {
+    "grunt-newer": "~0.6.0",
+    "grunt-concurrent": "~0.4.2"
+  }
+}
