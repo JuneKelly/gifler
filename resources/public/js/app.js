@@ -1,4 +1,4 @@
 (function() {
-  alert("aaaa");
+  alert("bbb");
 
 }).call(this);

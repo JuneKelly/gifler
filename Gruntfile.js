@@ -5,7 +5,8 @@ module.exports = function(grunt) {
     watch: {
       coffee: {
         files: [
-          "resources/scripts/*.coffee"
+          "resources/scripts/*.coffee",
+          "resources/scripts/controllers/*.coffee"
         ],
         tasks: 'newer:coffee',
         options: {
