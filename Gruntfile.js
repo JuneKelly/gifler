@@ -12,6 +12,10 @@ module.exports = function(grunt) {
         options: {
           liveReload: true
         }
+      },
+      styles: {
+        files: ["resources/styles/main.css"],
+        tasks: "newer:copy:styles"
       }
     },
     exec: {
@@ -29,6 +33,26 @@ module.exports = function(grunt) {
         }
       }
     },
+    copy: {
+      styles: {
+        expand: true,
+        cwd: 'resources/styles',
+        dest: 'resources/public/css/',
+        src: '{,*/}*.css'
+      },
+      views: {
+        expand: true,
+        cwd: 'resources/views',
+        dest: 'resources/public/views/',
+        src: '*.html'
+      },
+      bower: {
+        expand: true,
+        cwd: 'resources/bower_components',
+        dest: 'resources/public/vendor/',
+        src: '**/*'
+      }
+    },
     concurrent: {
       server: ['exec:server', 'watch']
     }
@@ -37,8 +61,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-concurrent');
 
-  grunt.registerTask('server', ['coffee', 'concurrent:server']);
+  grunt.registerTask('server', ['copy:styles', 'copy:views', 'copy:bower', 'coffee', 'concurrent:server']);
 };
