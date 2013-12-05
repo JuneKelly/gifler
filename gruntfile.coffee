@@ -5,8 +5,7 @@ module.exports = (grunt) ->
     watch:
       coffee:
         files: [
-          "resources/scripts/*.coffee"
-          "resources/scripts/controllers/*.coffee"
+          "resources/scripts/**/*.coffee"
         ]
         tasks: "newer:coffee"
         options:
@@ -17,6 +16,12 @@ module.exports = (grunt) ->
       views:
         files: ["resources/views/*.html"]
         tasks: "newer:copy:views"
+      fonts:
+        files: ["resources/fonts/*"]
+        tasks: "newer:copy:fonts"
+      images:
+        files: ["resources/images/*"]
+        tasks: "newer:copy:images"
 
     exec:
       server:
