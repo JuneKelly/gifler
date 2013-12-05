@@ -33,11 +33,11 @@ module.exports = (grunt) ->
           ]
 
     copy:
-      styles:
-        expand: true
-        cwd: "resources/styles"
-        dest: "resources/public/css/"
-        src: "{,*/}*.css"
+      #styles:
+      #  expand: true
+      #  cwd: "resources/styles"
+      #  dest: "resources/public/css/"
+      #  src: "{,*/}*.css"
       views:
         expand: true
         cwd: "resources/views"
