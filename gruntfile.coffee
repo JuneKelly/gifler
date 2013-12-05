@@ -12,8 +12,8 @@ module.exports = (grunt) ->
         options:
           liveReload: true
       styles:
-        files: ["resources/styles/main.css"]
-        tasks: "newer:copy:styles"
+        files: ["resources/styles/*.sass"]
+        tasks: "newer:compass"
       views:
         files: ["resources/views/*.html"]
         tasks: "newer:copy:views"
@@ -59,6 +59,12 @@ module.exports = (grunt) ->
         dest: "resources/public/img"
         src: "**/*"
 
+    compass:
+      dist:
+        options:
+          sassDir: "resources/styles"
+          cssDir:  "resources/public/css"
+
     concurrent:
       server: [
         "exec:server"
@@ -71,8 +77,10 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-copy"
   grunt.loadNpmTasks "grunt-newer"
   grunt.loadNpmTasks "grunt-concurrent"
+  grunt.loadNpmTasks "grunt-contrib-compass"
+
   grunt.registerTask "server", [
-    "copy:styles"
+    "compass"
     "copy:views"
     "copy:bower"
     "copy:fonts"
