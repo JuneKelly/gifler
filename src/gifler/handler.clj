@@ -1,5 +1,5 @@
-(ns gifler.handler  
-  (:require [compojure.core :refer [defroutes]]            
+(ns gifler.handler
+  (:require [compojure.core :refer [defroutes]]
             [gifler.routes.home :refer [home-routes]]
             [noir.util.middleware :as middleware]
             [compojure.route :as route]
@@ -8,9 +8,11 @@
             [selmer.parser :as parser]
             [environ.core :refer [env]]))
 
+
 (defroutes app-routes
   (route/resources "/")
   (route/not-found "Not Found"))
+
 
 (defn init
   "init will be called once when
@@ -33,11 +35,13 @@
   (if (env :selmer-dev) (parser/cache-off!))
   (timbre/info "gifler started successfully"))
 
+
 (defn destroy
   "destroy will be called when your application
    shuts down, put any clean up code here"
   []
   (timbre/info "gifler is shutting down..."))
+
 
 (defn template-error-page [handler]
   (if (env :selmer-dev)
@@ -51,6 +55,7 @@
                :body (parser/render error-template data)}
               (throw ex))))))
     handler))
+
 
 (def app (middleware/app-handler
            ;; add your application routes here
