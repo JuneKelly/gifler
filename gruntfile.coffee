@@ -48,6 +48,16 @@ module.exports = (grunt) ->
         cwd: "resources/bower_components"
         dest: "resources/public/vendor/"
         src: "**/*"
+      fonts:
+        expand: true
+        cwd: "resources/fonts"
+        dest: "resources/public/fonts"
+        src: "**/*"
+      images:
+        expand: true
+        cwd: "resources/images"
+        dest: "resources/public/img"
+        src: "**/*"
 
     concurrent:
       server: [
@@ -65,6 +75,8 @@ module.exports = (grunt) ->
     "copy:styles"
     "copy:views"
     "copy:bower"
+    "copy:fonts"
+    "copy:images"
     "coffee"
     "concurrent:server"
   ]
